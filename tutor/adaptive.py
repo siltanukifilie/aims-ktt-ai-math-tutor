@@ -9,10 +9,6 @@ Purpose:
 Main approach:
 - Bayesian Knowledge Tracing (BKT) baseline.
 
-Judge Defense:
-- I chose BKT instead of a neural DKT model because BKT is lightweight,
-  explainable, CPU-friendly, and suitable for a 3-hour hackathon baseline.
-- This matches the offline and low-resource constraints.
 """
 
 import random
