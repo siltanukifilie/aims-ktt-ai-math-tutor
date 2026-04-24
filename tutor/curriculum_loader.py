@@ -5,10 +5,6 @@ Purpose:
 - Load the generated full curriculum.
 - Filter questions by skill, difficulty, and age band.
 - Provide clean access to curriculum items for the tutor.
-
-Judge Defense:
-- I separated curriculum loading from the adaptive logic.
-- This makes the code easier to test, explain, and modify during Live Defense.
 """
 
 import json
