@@ -1,0 +1,26 @@
+source,language,augmentation,purpose,target_model
+Mozilla Common Voice,en,pitch_shift_plus_3_semitones,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,en,pitch_shift_plus_6_semitones,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,en,tempo_0_9x,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,en,tempo_1_1x,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,en,musan_classroom_noise_overlay,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,fr,pitch_shift_plus_3_semitones,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,fr,pitch_shift_plus_6_semitones,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,fr,tempo_0_9x,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,fr,tempo_1_1x,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,fr,musan_classroom_noise_overlay,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,rw,pitch_shift_plus_3_semitones,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,rw,pitch_shift_plus_6_semitones,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,rw,tempo_0_9x,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,rw,tempo_1_1x,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+Mozilla Common Voice,rw,musan_classroom_noise_overlay,child-age speech examples for multilingual ASR adaptation,openai/whisper-tiny
+DigitalUmuganda Kinyarwanda 8 kHz,rw,pitch_shift_plus_3_semitones,local Kinyarwanda speech robustness,openai/whisper-tiny
+DigitalUmuganda Kinyarwanda 8 kHz,rw,pitch_shift_plus_6_semitones,local Kinyarwanda speech robustness,openai/whisper-tiny
+DigitalUmuganda Kinyarwanda 8 kHz,rw,tempo_0_9x,local Kinyarwanda speech robustness,openai/whisper-tiny
+DigitalUmuganda Kinyarwanda 8 kHz,rw,tempo_1_1x,local Kinyarwanda speech robustness,openai/whisper-tiny
+DigitalUmuganda Kinyarwanda 8 kHz,rw,musan_classroom_noise_overlay,local Kinyarwanda speech robustness,openai/whisper-tiny
+MUSAN noise,noise,pitch_shift_plus_3_semitones,classroom-noise overlay for noisy learning environments,openai/whisper-tiny
+MUSAN noise,noise,pitch_shift_plus_6_semitones,classroom-noise overlay for noisy learning environments,openai/whisper-tiny
+MUSAN noise,noise,tempo_0_9x,classroom-noise overlay for noisy learning environments,openai/whisper-tiny
+MUSAN noise,noise,tempo_1_1x,classroom-noise overlay for noisy learning environments,openai/whisper-tiny
+MUSAN noise,noise,musan_classroom_noise_overlay,classroom-noise overlay for noisy learning environments,openai/whisper-tiny
