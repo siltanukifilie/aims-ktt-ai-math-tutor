@@ -18,6 +18,7 @@ Why:
 """
 
 import os
+from pathlib import Path
 
 EN_NUMBERS = {
     "zero": 0, "one": 1, "two": 2, "three": 3, "four": 4,
@@ -46,9 +47,10 @@ KIN_KEYWORDS = {"rimwe", "kabiri", "gatatu", "kane", "gatanu", "ni", "angahe", "
 # -----------------------------
 
 _whisper_pipe = None
+_whisper_loaded_from = None
 
 
-def load_whisper_tiny():
+def load_whisper_tiny(model_dir=None, enable_asr=None):
     """
     Purpose:
     - Load openai/whisper-tiny only when needed.
@@ -58,28 +60,45 @@ def load_whisper_tiny():
     - If model loading fails, the system still works with text/tap fallback.
     """
     global _whisper_pipe
+    global _whisper_loaded_from
 
     if _whisper_pipe is not None:
         return _whisper_pipe
+
+    if enable_asr is None:
+        enable_asr = os.getenv("ENABLE_ASR", "0") == "1"
+
+    if not enable_asr:
+        return None
+
+    if model_dir is None:
+        model_dir = Path("models") / "whisper-tiny"
+    else:
+        model_dir = Path(model_dir)
+
+    if not model_dir.exists():
+        return None
 
     try:
         from transformers import pipeline
 
         _whisper_pipe = pipeline(
             task="automatic-speech-recognition",
-            model="openai/whisper-tiny",
+            model=str(model_dir),
             device=-1,
+            local_files_only=True,
         )
+        _whisper_loaded_from = str(model_dir)
 
         return _whisper_pipe
 
     except Exception as error:
-        print("Whisper-tiny could not be loaded. Falling back to text input.")
+        print("Offline Whisper-tiny could not be loaded. Falling back to text input.")
         print("Reason:", error)
         return None
 
 
-def transcribe_audio(audio_path):
+def transcribe_audio(audio_path, model_dir=None, enable_asr=None):
     """
     Purpose:
     - Convert audio file into text using Whisper-tiny.
@@ -94,7 +113,7 @@ def transcribe_audio(audio_path):
     if not os.path.exists(audio_path):
         return ""
 
-    pipe = load_whisper_tiny()
+    pipe = load_whisper_tiny(model_dir=model_dir, enable_asr=enable_asr)
 
     if pipe is None:
         return ""
@@ -217,7 +236,7 @@ def process_child_input(raw_input):
     }
 
 
-def process_audio_or_text(audio_path=None, typed_text=""):
+def process_audio_or_text(audio_path=None, typed_text="", model_dir=None, enable_asr=None):
     """
     Purpose:
     - Prefer typed/tap input if provided.
@@ -230,7 +249,7 @@ def process_audio_or_text(audio_path=None, typed_text=""):
     if clean_text(typed_text):
         return process_child_input(typed_text)
 
-    transcript = transcribe_audio(audio_path)
+    transcript = transcribe_audio(audio_path, model_dir=model_dir, enable_asr=enable_asr)
     return process_child_input(transcript)
 
 
