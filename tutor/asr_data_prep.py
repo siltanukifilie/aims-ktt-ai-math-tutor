@@ -7,10 +7,7 @@ Purpose:
 - Define child-voice augmentation steps:
   pitch shift, tempo perturbation, and classroom noise overlay.
 
-Judge Defense:
-- The brief asks for child speech adaptation.
-- Full ASR fine-tuning is expensive under the time limit.
-- This file documents and structures the adaptation pipeline clearly.
+
 """
 
 import csv
