@@ -14,12 +14,6 @@ Purpose:
 - Save the final dataset to:
   data/T3.1_Math_Tutor/full_curriculum.json
 
-Judge Defense:
-- The seed file gives only a small starting curriculum.
-- The challenge requires a larger curriculum of at least 60 items.
-- I generate additional items using the same schema so the tutor can support
-  adaptive learning, knowledge tracing, repeated practice, and level-based item selection.
-- This approach is fast, reproducible, offline, and explainable during Live Defense.
 """
 
 import json
