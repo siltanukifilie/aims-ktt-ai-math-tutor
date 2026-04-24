@@ -25,6 +25,8 @@ SKILLS = [
     "number_sense",
     "addition",
     "subtraction",
+    "multiplication",
+    "division",
     "word_problem",
 ]
 
@@ -189,18 +191,34 @@ def update_learner_state(learner_state, item, learner_answer):
 
 def get_feedback(is_correct, language="en"):
     """
-    Purpose:
-    - Give simple child-friendly feedback.
+    Multilingual child-friendly feedback.
 
     Judge Defense:
-    - Feedback is short because early learners need clear responses.
-    - Multilingual feedback supports the challenge requirement.
+    - Responds in dominant language
+    - Supports Kinyarwanda, French, English
+    - Simple, safe for children
     """
-    if language == "kin":
-        return "Ni byo! Komereza aho." if is_correct else "Gerageza nanone."
-    if language == "fr":
-        return "Correct! Continue." if is_correct else "Essaie encore."
-    return "Correct! Great job." if is_correct else "Try again."
+
+    responses = {
+        "en": {
+            True: "Correct! Great job 🎉",
+            False: "Try again 💡",
+        },
+        "fr": {
+            True: "Correct! Bravo 🎉",
+            False: "Essaie encore 💡",
+        },
+        "kin": {
+            True: "Ni byo! Komereza aho 🎉",
+            False: "Ongera ugerageze 💡",
+        },
+    }
+
+    # fallback
+    if language not in responses:
+        language = "en"
+
+    return responses[language][is_correct]
 
 
 if __name__ == "__main__":

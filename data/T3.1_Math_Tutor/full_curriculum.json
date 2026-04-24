@@ -807,5 +807,23 @@
     "stem_kin": "3 + 1 ni angahe?",
     "visual": "beads_3_plus_1",
     "answer_int": 4
+  },
+  {
+    "id": "M001",
+    "skill": "multiplication",
+    "difficulty": 4,
+    "age_band": "7-8",
+    "stem_en": "2 groups of 3 apples. How many total?",
+    "answer_int": 6,
+    "visual": "groups_2_3"
+  },
+  {
+    "id": "D001",
+    "skill": "division",
+    "difficulty": 5,
+    "age_band": "7-8",
+    "stem_en": "6 apples shared among 2 children. Each gets?",
+    "answer_int": 3,
+    "visual": "share_6_2"
   }
 ]
