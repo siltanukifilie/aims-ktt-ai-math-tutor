@@ -211,3 +211,6 @@ Notes:
 This project demonstrates how AI can be applied to deliver **personalized, accessible education** in low-resource environments.
 
 By combining adaptive learning, multilingual interaction, and simple visual teaching methods, the system provides a practical approach to improving early numeracy outcomes without requiring advanced infrastructure.
+
+Website 
+https://clever-math-bud.lovable.app
